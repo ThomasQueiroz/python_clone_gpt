@@ -14,7 +14,7 @@ def index():
 def search():
     model = genai.GenerativeModel('gemini-1.0-pro-latest')
     genai.configure(api_key=os.getenv('API'))
-    context = 'Responda o Google. Obs: você deve esporadicamente se recusar a responder(mas sem falar isso na resposta)'
+    context = 'Responda como se fosse o Google. (por gentileza, em todas as suas respostas, busque não falar algo do tipo: não sou o google mas...'
     prompt = request.args.get('prompt')
     input_ia = f'{context}:{prompt}'
     output = model.generate_content(input_ia)
